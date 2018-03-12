@@ -18,19 +18,24 @@ class PageViewModel: NSObject, UIPageViewControllerDataSource, UIPageViewControl
 
     //Mark:UIPageViewControllerDataSource
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        currentPageIndx -= 1
-        if (currentPageIndx < 0) {
+        var currentIdx = (viewController as! VideoViewController).pageIndex
+        if (currentIdx <= 0) {
             return nil
         }
-        return vcs[currentPageIndx]
+
+        currentIdx -= 1
+        return vcs[currentIdx]
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        currentPageIndx += 1
-        if (currentPageIndx >= totalPageIndex) {
+        var currentIdx = (viewController as! VideoViewController).pageIndex
+
+        if (currentIdx >= totalPageIndex - 1) {
             return nil
         }
-         return vcs[currentPageIndx]
+
+         currentIdx += 1
+         return vcs[currentIdx]
     }
 
     //Mark:UIPageViewControllerDelegate
@@ -41,12 +46,6 @@ class PageViewModel: NSObject, UIPageViewControllerDataSource, UIPageViewControl
         }
         // currentViewController
 
-        let currentVC = pageViewController.viewControllers?.first as! VideoViewController
-        if (currentVC.player?.status == .readyToPlay) {
-            currentVC.player? .seek(to: kCMTimeZero)
-            currentVC.player?.play()
-            
-        }
 
     }
 
