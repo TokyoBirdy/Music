@@ -30,7 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+        //TODO: how can I wait until I clean up everything
+        VideoOperation.cleanUp { (success,error) in
+            print("Who cares if I succeed or not")
+        }
     }
 
 
