@@ -2,11 +2,17 @@ import UIKit
 import MobileCoreServices
 
 
+protocol UploadViewControllerDelegate: class {
+
+    func viewCnotroller(_:UploadViewController, didFinishUpLoadingWithSuccess success:Bool)
+
+}
+
 class UploadViewController: UIViewController, UploadViewModelDelegate {
 
     let imagePickerController = UIImagePickerController()
     let uploadViewModel = UploadViewModel()
-
+    weak var delegate : UploadViewControllerDelegate?
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -50,12 +56,15 @@ class UploadViewController: UIViewController, UploadViewModelDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         imagePickerController.dismiss(animated: true, completion: nil)
-
+        //Also redirect to home
+       self.delegate?.viewCnotroller(self, didFinishUpLoadingWithSuccess: true)
     }
+
     func viewModel(_ viewModel: UploadViewModel, didUploadVideoWithFailure error:Error?) {
         let alert = AlertControllerHelper.alert(title: "Failure", message: "Error: \(String(describing: error?.localizedDescription))")
         self.present(alert, animated: true, completion: nil)
         imagePickerController.dismiss(animated: true, completion: nil)
+        self.delegate?.viewCnotroller(self, didFinishUpLoadingWithSuccess: false)
     }
 
 }
