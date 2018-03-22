@@ -39,6 +39,16 @@ enum VideoOperation {
             completion(true, nil)
 
             //This is how you catch error let error!! sigh
+            // I recently learned that swift automatically adds the variable named `error` in `catch` blocks, which means you actually don't need to write out `let error` unless you want to \o/.
+            // But that's actually a bit weird as it can be a bit confusing if you already have a variable called error in the same scope.
+            // like
+            // func handleSomeError(_ error: Error) {
+            //   do {
+            //      try functionThatThrowsOtherError()
+            //   } catch {
+            //      print(error) //is this .SomeError or .OtherError
+            //   }
+            // }
         } catch let error {
             completion(false,error)
         }
