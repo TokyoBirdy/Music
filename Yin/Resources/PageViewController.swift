@@ -28,12 +28,18 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
 
     //Mark:UIPageViewControllerDataSource
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var currentIdx = (viewController as! VideoViewController).pageIndex
-        if (currentIdx <= 0) {
+        guard let viewController = viewController as? VideoViewController  else {
+            return nil
+        }
+        var currentIdx = viewController.pageIndex
+
+        currentIdx -= 1
+
+        if (currentIdx < 0) {
             return nil
         }
 
-        currentIdx -= 1
+
         return self.pageViewModel.vcs[currentIdx]
     }
 
@@ -49,9 +55,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
 
 
     func viewModel(viewModel:PageViewModel, didUpdateWithVideoURIs videoURIs:[URL]?) {
-        //TODO: there maybe is a better way
-        if let uris = videoURIs, uris.count > 0 {
-            self.setViewControllers([self.pageViewModel.vcs.first!], direction: .forward, animated: false, completion: nil)
+        if let firstVC = self.pageViewModel.vcs.first {
+            self.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
         }
     }
     

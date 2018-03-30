@@ -67,10 +67,11 @@ enum VideoOperation {
             let fileURLs = try fileManager.contentsOfDirectory(at: documentURL!, includingPropertiesForKeys: nil, options: [.skipsSubdirectoryDescendants,.skipsPackageDescendants])
 
             for fileURL in fileURLs {
-               try fileManager.removeItem(at: fileURL)
+                try fileManager.removeItem(at: fileURL)
             }
-        } catch let error {
-                   completion(false, error)
+            //You do not need to add let error here, because apple automatically add let error. 
+        } catch {
+            completion(false, error)
         }
 
         completion(true, nil)

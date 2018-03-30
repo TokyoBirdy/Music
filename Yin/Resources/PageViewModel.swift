@@ -27,16 +27,19 @@ class PageViewModel: NSObject, PageViewDataSourceDelegate {
     //Mark:PageViewDataSourceDelegate
 
     func dataSource(_ dataSource: PageViewDataSource, didDownloadVideoURIs uris: [URL]?) {
-        // TODO: do I have to give it another name? DO I have to do this twice?
-        if let videoURIs = uris {
-            self.videoURIs = videoURIs
-            for idx in 0..<self.videoURIs.count {
-                let uri = self.videoURIs[idx]
-                let videoVC = VideoViewController(videoURI: uri, pageIndex:idx)
-                vcs.append(videoVC)
-            }
-            self.delegate?.viewModel(viewModel: self, didUpdateWithVideoURIs: self.videoURIs)
+
+        guard  let uris = uris else {
+            return
         }
+
+        let videoControllers = uris.enumerated().map({ (index,url) -> VideoViewController in
+            return VideoViewController(videoURI: url, pageIndex:index)
+        })
+
+        self.videoURIs = uris
+        vcs = videoControllers
+
+        self.delegate?.viewModel(viewModel: self, didUpdateWithVideoURIs: self.videoURIs)
 
     }
 

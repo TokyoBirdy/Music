@@ -3,13 +3,16 @@ import AVKit
 import AVFoundation
 
 // No need for prefix, because swift is modulebased, this would Yin.YinViewController
-class VideoViewController: UIViewController {
+ class VideoViewController: UIViewController {
 
     //objective c: has NSInteger, which is same as Int in swift, 32 or 64 bits depends on the processor.
     //objective c: int is from C, it is 32 bits
-    open var player : AVPlayer?
+
+    var player : AVPlayer?
     var pageIndex:Int = 0
     var videoURI:URL
+    var itemDidPlayToEndTimeObservation: NSObjectProtocol?
+
     init(videoURI:URL, pageIndex:Int) {
         //TODO: why in swift this is put it before super?
         self.videoURI = videoURI
@@ -27,7 +30,16 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         self.createPlayer(videoURI: self.videoURI)
         //TODO: add parameter to selector function
-        NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem)
+        itemDidPlayToEndTimeObservation = NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main, using: { [weak self] _ in
+            self?.playerDidFinishPlaying()
+        })
+    }
+
+    deinit {
+        // this is how you check if you have an observation allready, and if so remove it
+        if let observation = itemDidPlayToEndTimeObservation {
+            NotificationCenter.default.removeObserver(observation)
+        }
     }
 
     private func createPlayer(videoURI:URL) {
