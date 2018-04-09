@@ -13,10 +13,19 @@ class PageViewDataSource: NSObject {
     weak var delegate:PageViewDataSourceDelegate?
 
     private var videoURIs = [URL]()
+    private var initialUploadCompleted = false
     private let names = ["Gudetama","Doreimon", "Richie"]
 
     func loadModel() {
+        if (initialUploadCompleted) {
+            self.download()
+        } else {
+            initialDownload()
+        }
+    }
 
+
+    func initialDownload() {
         videoURIs = names.flatMap({ (name) -> URL? in
             if let path = Bundle.main.path(forResource: name, ofType:"MOV") {
                 return URL(fileURLWithPath:path)
@@ -28,10 +37,10 @@ class PageViewDataSource: NSObject {
         })
 
         self.upload(uris: videoURIs, completion: {
+            initialUploadCompleted = true;
             self.download()
         })
     }
-
 
     func upload(uris:[URL], completion:()->()) {
         for videoURI in videoURIs {

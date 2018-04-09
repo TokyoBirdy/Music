@@ -21,7 +21,7 @@ class TabBarViewController: UITabBarController, UploadViewControllerDelegate {
         //navigate to home
         self.selectedIndex = 0
         if (success) {
-            homeViewController.pageViewModel.loadModel()
+            homeViewController.refresh()
         }
     }
 

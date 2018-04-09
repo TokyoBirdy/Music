@@ -24,6 +24,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
         // Dispose of any resources that can be recreated.
     }
 
+    func refresh() {
+        self.pageViewModel.reload()
+//        self.dataSource = nil
+//        self.dataSource = self
+    }
+
 
 
     //Mark:UIPageViewControllerDataSource

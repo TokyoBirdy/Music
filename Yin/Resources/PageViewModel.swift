@@ -24,6 +24,10 @@ class PageViewModel: NSObject, PageViewDataSourceDelegate {
         self.dataSource.loadModel()
     }
 
+    func reload() {
+        self.dataSource.loadModel()
+    }
+
     //Mark:PageViewDataSourceDelegate
 
     func dataSource(_ dataSource: PageViewDataSource, didDownloadVideoURIs uris: [URL]?) {
