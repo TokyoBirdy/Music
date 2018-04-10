@@ -50,8 +50,17 @@ enum VideoOperation {
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
 
         do {
-            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL!, includingPropertiesForKeys: nil, options: [.skipsSubdirectoryDescendants,.skipsPackageDescendants])
-            completion(fileURLs, nil)
+            //sort
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL!, includingPropertiesForKeys: [.creationDateKey], options: [.skipsSubdirectoryDescendants,.skipsPackageDescendants])
+
+            //TODO: what happens if time is the same
+            let sortedURLs = fileURLs.sorted(by: { (a:URL, b:URL) -> Bool in
+                if let URLResourceValueA =  try? a.resourceValues(forKeys: Set([URLResourceKey.creationDateKey])), let timeA = URLResourceValueA.creationDate, let URLResourceValueB = try? b.resourceValues(forKeys: Set([URLResourceKey.creationDateKey])), let timeB = URLResourceValueB.creationDate {
+                    return timeA.compare(timeB) == .orderedAscending
+                }
+                return false
+            })
+            completion(sortedURLs, nil)
         } catch let error {
             completion (nil, error)
 

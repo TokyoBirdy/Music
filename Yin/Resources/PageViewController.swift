@@ -1,8 +1,10 @@
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource,PageViewModelDelegate {
+class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, PageViewModelDelegate {
 
     var pageViewModel = PageViewModel()
+    private var currentIndex = 0
+    private var currentViewController:VideoViewController?
     //TODO: maybe use macro or put it somewhere else
     init() {
         super.init(transitionStyle: .scroll, navigationOrientation: .vertical, options: nil)
@@ -17,6 +19,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
         self.pageViewModel.delegate = self
         self.pageViewModel.loadModel()
         self.dataSource = self
+        self.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +32,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
 //        self.dataSource = nil
 //        self.dataSource = self
     }
+
 
 
 
@@ -59,11 +63,28 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
         return self.pageViewModel.vcs[currentIdx]
     }
 
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard completed, let viewControllers = pageViewController.viewControllers else {
+            return
+        }
+
+        self.currentViewController = viewControllers.first as? VideoViewController
+
+        if let currentVC = self.currentViewController {
+            self.currentIndex = self.pageViewModel.indexForViewController(currentVC)
+            print("Current index is \(self.currentIndex)")
+            print()
+        }
+
+    }
 
     func viewModel(viewModel:PageViewModel, didUpdateWithVideoURIs videoURIs:[URL]?) {
-        if let firstVC = self.pageViewModel.vcs.first {
+        if let currentVC = self.currentViewController {
+            self.setViewControllers([currentVC], direction: .forward, animated: false, completion: nil)
+        } else if let firstVC = self.pageViewModel.vcs.first {
             self.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
         }
+
     }
     
     func viewModel(viewModel:PageViewModel, didUpdateWithError error:Error?) {

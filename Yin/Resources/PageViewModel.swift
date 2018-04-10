@@ -28,6 +28,13 @@ class PageViewModel: NSObject, PageViewDataSourceDelegate {
         self.dataSource.loadModel()
     }
 
+    func indexForViewController(_ viewController:VideoViewController) -> Int  {
+        if let idx = self.vcs.index(of: viewController) {
+            return idx
+        }
+        return 0
+    }
+
     //Mark:PageViewDataSourceDelegate
 
     func dataSource(_ dataSource: PageViewDataSource, didDownloadVideoURIs uris: [URL]?) {
@@ -40,6 +47,8 @@ class PageViewModel: NSObject, PageViewDataSourceDelegate {
             return VideoViewController(videoURI: url, pageIndex:index)
         })
 
+
+        //TODO: this is not in order, we need to fix that
         self.videoURIs = uris
         vcs = videoControllers
 
