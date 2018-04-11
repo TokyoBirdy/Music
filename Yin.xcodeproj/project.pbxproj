@@ -22,6 +22,9 @@
 		1662D4432055734500799721 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1662D4412055734500799721 /* Main.storyboard */; };
 		1662D4452055734500799721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1662D4442055734500799721 /* Assets.xcassets */; };
 		1662D4482055734500799721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1662D4462055734500799721 /* LaunchScreen.storyboard */; };
+		166549EF207CCDF900EE5DF0 /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166549EE207CCDF900EE5DF0 /* HeartButton.swift */; };
+		16654ADE207CF74C00EE5DF0 /* YinIcon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16654ADD207CF74C00EE5DF0 /* YinIcon.ttf */; };
+		16654BCB207E20B900EE5DF0 /* StringToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16654BCA207E20B900EE5DF0 /* StringToImage.swift */; };
 		16ACDF2E2057D69D00CA6D05 /* VideoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACDF2D2057D69D00CA6D05 /* VideoOperation.swift */; };
 		16ACDF302057E15100CA6D05 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACDF2F2057E15100CA6D05 /* AlertControllerHelper.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		1662D4442055734500799721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1662D4472055734500799721 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1662D4492055734500799721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		166549EE207CCDF900EE5DF0 /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
+		16654ADD207CF74C00EE5DF0 /* YinIcon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = YinIcon.ttf; sourceTree = "<group>"; };
+		16654BCA207E20B900EE5DF0 /* StringToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringToImage.swift; sourceTree = "<group>"; };
 		16ACDF2D2057D69D00CA6D05 /* VideoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOperation.swift; sourceTree = "<group>"; };
 		16ACDF2F2057E15100CA6D05 /* AlertControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +109,7 @@
 		163821032055781600A6FCE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16654ADD207CF74C00EE5DF0 /* YinIcon.ttf */,
 				163821042055783D00A6FCE6 /* Gudetama.MOV */,
 				1638210C2055883800A6FCE6 /* Doreimon.MOV */,
 				1638210E20558BF400A6FCE6 /* Richie.MOV */,
@@ -129,6 +136,7 @@
 		1662D43C2055734500799721 /* Yin */ = {
 			isa = PBXGroup;
 			children = (
+				166549ED207CCDBF00EE5DF0 /* Elements */,
 				16038A912056E0850076C2FD /* Helper */,
 				16038A8A2056BA170076C2FD /* Tabs */,
 				163821032055781600A6FCE6 /* Resources */,
@@ -139,6 +147,15 @@
 				1662D4492055734500799721 /* Info.plist */,
 			);
 			path = Yin;
+			sourceTree = "<group>";
+		};
+		166549ED207CCDBF00EE5DF0 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				166549EE207CCDF900EE5DF0 /* HeartButton.swift */,
+				16654BCA207E20B900EE5DF0 /* StringToImage.swift */,
+			);
+			name = Elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +220,7 @@
 				163821052055783D00A6FCE6 /* Gudetama.MOV in Resources */,
 				1662D4482055734500799721 /* LaunchScreen.storyboard in Resources */,
 				1638210D2055883800A6FCE6 /* Doreimon.MOV in Resources */,
+				16654ADE207CF74C00EE5DF0 /* YinIcon.ttf in Resources */,
 				1662D4452055734500799721 /* Assets.xcassets in Resources */,
 				1638210F20558BF400A6FCE6 /* Richie.MOV in Resources */,
 				1662D4432055734500799721 /* Main.storyboard in Resources */,
@@ -223,7 +241,9 @@
 				1662D43E2055734500799721 /* AppDelegate.swift in Sources */,
 				16038A932056E0BE0076C2FD /* StringExtension.swift in Sources */,
 				16ACDF2E2057D69D00CA6D05 /* VideoOperation.swift in Sources */,
+				16654BCB207E20B900EE5DF0 /* StringToImage.swift in Sources */,
 				16ACDF302057E15100CA6D05 /* AlertControllerHelper.swift in Sources */,
+				166549EF207CCDF900EE5DF0 /* HeartButton.swift in Sources */,
 				1638210920557F2D00A6FCE6 /* VideoViewController.swift in Sources */,
 				161CDA6A2056B5BD00AF4746 /* TabBarViewController.swift in Sources */,
 				1638210720557DD400A6FCE6 /* PageViewModel.swift in Sources */,
