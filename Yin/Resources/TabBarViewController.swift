@@ -2,18 +2,19 @@ import UIKit
 
 class TabBarViewController: UITabBarController, UploadViewControllerDelegate {
 
-    let homeViewController = PageViewController()
-    let uploadViewController = UploadViewController()
+    var homeViewController = ScrollPageViewController()
+    var uploadViewController = UploadViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        homeViewController = ScrollPageViewController()
+//        uploadViewController = UploadViewController()
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
 
         uploadViewController.tabBarItem = UITabBarItem(title: "Upload", image: nil, tag: 1)
         uploadViewController.delegate = self
 
-        let tabControllers = [homeViewController, uploadViewController]
+        let tabControllers: [UIViewController] = [homeViewController, uploadViewController]
         self.setViewControllers(tabControllers, animated: false)
     }
 
@@ -21,7 +22,7 @@ class TabBarViewController: UITabBarController, UploadViewControllerDelegate {
         //navigate to home
         self.selectedIndex = 0
         if (success) {
-            homeViewController.refresh()
+            //homeViewController.refresh()
         }
     }
 

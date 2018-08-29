@@ -13,7 +13,7 @@
 		161CDA6A2056B5BD00AF4746 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161CDA692056B5BD00AF4746 /* TabBarViewController.swift */; };
 		163821052055783D00A6FCE6 /* Gudetama.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 163821042055783D00A6FCE6 /* Gudetama.MOV */; };
 		1638210720557DD400A6FCE6 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638210620557DD400A6FCE6 /* PageViewModel.swift */; };
-		1638210920557F2D00A6FCE6 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638210820557F2D00A6FCE6 /* VideoViewController.swift */; };
+		1638210920557F2D00A6FCE6 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638210820557F2D00A6FCE6 /* VideoView.swift */; };
 		1638210B2055846400A6FCE6 /* PageViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638210A2055846400A6FCE6 /* PageViewDataSource.swift */; };
 		1638210D2055883800A6FCE6 /* Doreimon.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 1638210C2055883800A6FCE6 /* Doreimon.MOV */; };
 		1638210F20558BF400A6FCE6 /* Richie.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 1638210E20558BF400A6FCE6 /* Richie.MOV */; };
@@ -22,8 +22,14 @@
 		1662D4432055734500799721 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1662D4412055734500799721 /* Main.storyboard */; };
 		1662D4452055734500799721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1662D4442055734500799721 /* Assets.xcassets */; };
 		1662D4482055734500799721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1662D4462055734500799721 /* LaunchScreen.storyboard */; };
+		167C07B92135516600A5EE0F /* UIScrollView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C07B82135516600A5EE0F /* UIScrollView+Helper.swift */; };
+		167C07BD21356B8900A5EE0F /* StackedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C07BC21356B8900A5EE0F /* StackedScrollView.swift */; };
+		167C07ED2135733D00A5EE0F /* Subviews+Recursive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C07EC2135733D00A5EE0F /* Subviews+Recursive.swift */; };
+		167C07EF21357F6600A5EE0F /* UIColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C07EE21357F6600A5EE0F /* UIColor+Random.swift */; };
 		16ACDF2E2057D69D00CA6D05 /* VideoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACDF2D2057D69D00CA6D05 /* VideoOperation.swift */; };
 		16ACDF302057E15100CA6D05 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACDF2F2057E15100CA6D05 /* AlertControllerHelper.swift */; };
+		16E06D652133FED800E2F1F1 /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E06D642133FED800E2F1F1 /* ScrollPageViewController.swift */; };
+		16E06D772134024000E2F1F1 /* ScrollPageViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E06D762134024000E2F1F1 /* ScrollPageViewBinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +39,7 @@
 		161CDA692056B5BD00AF4746 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		163821042055783D00A6FCE6 /* Gudetama.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Gudetama.MOV; sourceTree = "<group>"; };
 		1638210620557DD400A6FCE6 /* PageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewModel.swift; sourceTree = "<group>"; };
-		1638210820557F2D00A6FCE6 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		1638210820557F2D00A6FCE6 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		1638210A2055846400A6FCE6 /* PageViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewDataSource.swift; sourceTree = "<group>"; };
 		1638210C2055883800A6FCE6 /* Doreimon.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Doreimon.MOV; sourceTree = "<group>"; };
 		1638210E20558BF400A6FCE6 /* Richie.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Richie.MOV; sourceTree = "<group>"; };
@@ -44,8 +50,14 @@
 		1662D4442055734500799721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1662D4472055734500799721 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1662D4492055734500799721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		167C07B82135516600A5EE0F /* UIScrollView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Helper.swift"; sourceTree = "<group>"; };
+		167C07BC21356B8900A5EE0F /* StackedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedScrollView.swift; sourceTree = "<group>"; };
+		167C07EC2135733D00A5EE0F /* Subviews+Recursive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subviews+Recursive.swift"; sourceTree = "<group>"; };
+		167C07EE21357F6600A5EE0F /* UIColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
 		16ACDF2D2057D69D00CA6D05 /* VideoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOperation.swift; sourceTree = "<group>"; };
 		16ACDF2F2057E15100CA6D05 /* AlertControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
+		16E06D642133FED800E2F1F1 /* ScrollPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageViewController.swift; sourceTree = "<group>"; };
+		16E06D762134024000E2F1F1 /* ScrollPageViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageViewBinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +85,11 @@
 		16038A8B2056BA2A0076C2FD /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1662D43F2055734500799721 /* PageViewController.swift */,
+				167C07BB213553BF00A5EE0F /* Another implementation */,
+				167C07BA213553AE00A5EE0F /* One implementation  */,
 				1638210620557DD400A6FCE6 /* PageViewModel.swift */,
 				1638210A2055846400A6FCE6 /* PageViewDataSource.swift */,
-				1638210820557F2D00A6FCE6 /* VideoViewController.swift */,
+				1638210820557F2D00A6FCE6 /* VideoView.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -96,6 +109,9 @@
 				16038A922056E0BE0076C2FD /* StringExtension.swift */,
 				16ACDF2D2057D69D00CA6D05 /* VideoOperation.swift */,
 				16ACDF2F2057E15100CA6D05 /* AlertControllerHelper.swift */,
+				167C07B82135516600A5EE0F /* UIScrollView+Helper.swift */,
+				167C07EC2135733D00A5EE0F /* Subviews+Recursive.swift */,
+				167C07EE21357F6600A5EE0F /* UIColor+Random.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -139,6 +155,24 @@
 				1662D4492055734500799721 /* Info.plist */,
 			);
 			path = Yin;
+			sourceTree = "<group>";
+		};
+		167C07BA213553AE00A5EE0F /* One implementation  */ = {
+			isa = PBXGroup;
+			children = (
+				1662D43F2055734500799721 /* PageViewController.swift */,
+			);
+			name = "One implementation ";
+			sourceTree = "<group>";
+		};
+		167C07BB213553BF00A5EE0F /* Another implementation */ = {
+			isa = PBXGroup;
+			children = (
+				16E06D642133FED800E2F1F1 /* ScrollPageViewController.swift */,
+				16E06D762134024000E2F1F1 /* ScrollPageViewBinder.swift */,
+				167C07BC21356B8900A5EE0F /* StackedScrollView.swift */,
+			);
+			name = "Another implementation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,16 +250,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16E06D772134024000E2F1F1 /* ScrollPageViewBinder.swift in Sources */,
 				1638210B2055846400A6FCE6 /* PageViewDataSource.swift in Sources */,
+				167C07BD21356B8900A5EE0F /* StackedScrollView.swift in Sources */,
 				16038A902056C0340076C2FD /* UploadViewModel.swift in Sources */,
 				16038A8E2056BA5F0076C2FD /* UploadViewController.swift in Sources */,
 				1662D4402055734500799721 /* PageViewController.swift in Sources */,
 				1662D43E2055734500799721 /* AppDelegate.swift in Sources */,
+				167C07EF21357F6600A5EE0F /* UIColor+Random.swift in Sources */,
 				16038A932056E0BE0076C2FD /* StringExtension.swift in Sources */,
 				16ACDF2E2057D69D00CA6D05 /* VideoOperation.swift in Sources */,
 				16ACDF302057E15100CA6D05 /* AlertControllerHelper.swift in Sources */,
-				1638210920557F2D00A6FCE6 /* VideoViewController.swift in Sources */,
+				167C07B92135516600A5EE0F /* UIScrollView+Helper.swift in Sources */,
+				16E06D652133FED800E2F1F1 /* ScrollPageViewController.swift in Sources */,
+				1638210920557F2D00A6FCE6 /* VideoView.swift in Sources */,
 				161CDA6A2056B5BD00AF4746 /* TabBarViewController.swift in Sources */,
+				167C07ED2135733D00A5EE0F /* Subviews+Recursive.swift in Sources */,
 				1638210720557DD400A6FCE6 /* PageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

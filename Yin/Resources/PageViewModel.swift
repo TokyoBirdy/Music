@@ -10,7 +10,7 @@ protocol PageViewModelDelegate: class {
 
 class PageViewModel: NSObject, PageViewDataSourceDelegate {
 
-    var vcs = [VideoViewController]()
+    var videoViews = [VideoView]()
     var dataSource = PageViewDataSource()
     var videoURIs = [URL]()
     weak var delegate:PageViewModelDelegate?
@@ -36,12 +36,12 @@ class PageViewModel: NSObject, PageViewDataSourceDelegate {
             return
         }
 
-        let videoControllers = uris.enumerated().map({ (index,url) -> VideoViewController in
-            return VideoViewController(videoURI: url, pageIndex:index)
-        })
+//        let videoVys = uris.enumerated().map({ (index,url) -> VideoView in
+//            return VideoView(videoURI: url, pageIndex:index)
+//        })
 
         self.videoURIs = uris
-        vcs = videoControllers
+       // videoViews = videoVys
 
         self.delegate?.viewModel(viewModel: self, didUpdateWithVideoURIs: self.videoURIs)
 

@@ -1,6 +1,6 @@
 import UIKit
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource,PageViewModelDelegate {
+class PageViewController: UIPageViewController {
 
     var pageViewModel = PageViewModel()
     //TODO: maybe use macro or put it somewhere else
@@ -14,9 +14,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pageViewModel.delegate = self
+        //self.pageViewModel.delegate = self
         self.pageViewModel.loadModel()
-        self.dataSource = self
+      //  self.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,44 +33,44 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource,P
 
 
     //Mark:UIPageViewControllerDataSource
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewController = viewController as? VideoViewController  else {
-            return nil
-        }
-        var currentIdx = viewController.pageIndex
-
-        currentIdx -= 1
-
-        if (currentIdx < 0) {
-            return nil
-        }
-
-
-        return self.pageViewModel.vcs[currentIdx]
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var currentIdx = (viewController as! VideoViewController).pageIndex
-        if (currentIdx >= self.pageViewModel.videoURIs.count - 1) {
-            return nil
-        }
-
-        currentIdx += 1
-        return self.pageViewModel.vcs[currentIdx]
-    }
-
-
-    func viewModel(viewModel:PageViewModel, didUpdateWithVideoURIs videoURIs:[URL]?) {
-        if let firstVC = self.pageViewModel.vcs.first {
-            self.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
-        }
-    }
-    
-    func viewModel(viewModel:PageViewModel, didUpdateWithError error:Error?) {
-        let alert = AlertControllerHelper.alert(title: "Failure", message: "Could not download videos from Document directory")
-        self.present(alert, animated: true, completion: nil)
-
-    }
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+//        guard let viewController = viewController as? UIViewController  else {
+//            return nil
+//        }
+//        var currentIdx = viewController.pageIndex
+//
+//        currentIdx -= 1
+//
+//        if (currentIdx < 0) {
+//            return nil
+//        }
+//
+//
+//        return self.pageViewModel.vcs[currentIdx]
+//    }
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+//        var currentIdx = (viewController as! VideoViewController).pageIndex
+//        if (currentIdx >= self.pageViewModel.videoURIs.count - 1) {
+//            return nil
+//        }
+//
+//        currentIdx += 1
+//        return self.pageViewModel.vcs[currentIdx]
+//    }
+//
+//
+//    func viewModel(viewModel:PageViewModel, didUpdateWithVideoURIs videoURIs:[URL]?) {
+//        if let firstVC = self.pageViewModel.vcs.first {
+//            self.setViewControllers([firstVC], direction: .forward, animated: false, completion: nil)
+//        }
+//    }
+//
+//    func viewModel(viewModel:PageViewModel, didUpdateWithError error:Error?) {
+//        let alert = AlertControllerHelper.alert(title: "Failure", message: "Could not download videos from Document directory")
+//        self.present(alert, animated: true, completion: nil)
+//
+//    }
 
 }
 
