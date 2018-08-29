@@ -2,6 +2,9 @@ import UIKit
 
 class StackedScrollView: UIScrollView {
     var stackView = UIStackView()
+    var videoViews = [VideoView]()
+
+    var currentpage = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +38,7 @@ class StackedScrollView: UIScrollView {
     }
 
     func createSubViews(with uris: [URL]) {
-        let _ = uris.map { (uri) -> VideoView in
+        let videoVys = uris.map { (uri) -> VideoView in
             let fillBounds = CGRect(origin: .zero, size: CGSize(width: self.frame.width, height: self.frame.height))
             let videoView = VideoView(frame: fillBounds)
 
@@ -49,21 +52,13 @@ class StackedScrollView: UIScrollView {
             videoView.videoURI = uri
             return videoView
         }
+        videoViews += videoVys
     }
 
-
-
-    private func addFakeViews() {
-        let dedicatedSize = CGSize(width: 375, height: 200)
-
-        for _ in 0...10 {
-            let fakeView = UIImageView(frame: CGRect(origin: .zero, size: dedicatedSize ))
-            fakeView.translatesAutoresizingMaskIntoConstraints = false
-            fakeView.frame.size = CGSize(width: self.frame.width, height: 200)
-            let colorImage = UIColor.random().image(dedicatedSize)
-            fakeView.backgroundColor = UIColor.random()
-            fakeView.image = colorImage
-            stackView.addArrangedSubview(fakeView)
+    func playVideo(at page: Int) {
+        if currentpage != page {
+            currentpage = page
+            videoViews[page].playVideo()
         }
     }
 }

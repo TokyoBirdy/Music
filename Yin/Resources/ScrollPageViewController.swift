@@ -61,12 +61,14 @@ extension ScrollPageViewController: PageViewModelDelegate {
 }
 
 extension ScrollPageViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("did scroll")
-    }
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = Int(scrollView.contentOffset.y / scrollView.frame.height)
         print("page number", pageNumber)
+        //TODO: how to do it gracefully
+        if scrollView == scrollpageView {
+            scrollpageView.playVideo(at: pageNumber)
+        }
 
     }
 }
