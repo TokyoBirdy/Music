@@ -3,6 +3,7 @@ import UIKit
 class StackedScrollView: UIScrollView {
     var stackView = UIStackView()
     var videoViews = [VideoView]()
+    var videoUris = [URL]()
 
     var currentpage = 0
 
@@ -38,7 +39,10 @@ class StackedScrollView: UIScrollView {
     }
 
     func createSubViews(with uris: [URL]) {
-        let videoVys = uris.map { (uri) -> VideoView in
+        //TODO:This is bad
+        let overlappedURIs = uris.filter { !videoUris.contains($0) }
+        print(overlappedURIs)
+        let videoVys = overlappedURIs.map { (uri) -> VideoView in
             let fillBounds = CGRect(origin: .zero, size: CGSize(width: self.frame.width, height: self.frame.height))
             let videoView = VideoView(frame: fillBounds)
 
@@ -52,13 +56,16 @@ class StackedScrollView: UIScrollView {
             videoView.videoURI = uri
             return videoView
         }
+        videoUris = uris
         videoViews += videoVys
     }
 
     func playVideo(at page: Int) {
         if currentpage != page {
             currentpage = page
-            videoViews[page].playVideo()
+            videoViews[page].startPlay()
         }
     }
+
+
 }

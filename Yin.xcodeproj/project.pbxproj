@@ -28,6 +28,7 @@
 		167C07EF21357F6600A5EE0F /* UIColor+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C07EE21357F6600A5EE0F /* UIColor+Random.swift */; };
 		16ACDF2E2057D69D00CA6D05 /* VideoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACDF2D2057D69D00CA6D05 /* VideoOperation.swift */; };
 		16ACDF302057E15100CA6D05 /* AlertControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ACDF2F2057E15100CA6D05 /* AlertControllerHelper.swift */; };
+		16B4FC962136B95C003F55A0 /* Beautiful+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B4FC952136B95C003F55A0 /* Beautiful+Extension.swift */; };
 		16E06D652133FED800E2F1F1 /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E06D642133FED800E2F1F1 /* ScrollPageViewController.swift */; };
 		16E06D772134024000E2F1F1 /* ScrollPageViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E06D762134024000E2F1F1 /* ScrollPageViewBinder.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		167C07EE21357F6600A5EE0F /* UIColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
 		16ACDF2D2057D69D00CA6D05 /* VideoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOperation.swift; sourceTree = "<group>"; };
 		16ACDF2F2057E15100CA6D05 /* AlertControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerHelper.swift; sourceTree = "<group>"; };
+		16B4FC952136B95C003F55A0 /* Beautiful+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Beautiful+Extension.swift"; sourceTree = "<group>"; };
 		16E06D642133FED800E2F1F1 /* ScrollPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageViewController.swift; sourceTree = "<group>"; };
 		16E06D762134024000E2F1F1 /* ScrollPageViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageViewBinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 				167C07B82135516600A5EE0F /* UIScrollView+Helper.swift */,
 				167C07EC2135733D00A5EE0F /* Subviews+Recursive.swift */,
 				167C07EE21357F6600A5EE0F /* UIColor+Random.swift */,
+				16B4FC952136B95C003F55A0 /* Beautiful+Extension.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				1662D43E2055734500799721 /* AppDelegate.swift in Sources */,
 				167C07EF21357F6600A5EE0F /* UIColor+Random.swift in Sources */,
 				16038A932056E0BE0076C2FD /* StringExtension.swift in Sources */,
+				16B4FC962136B95C003F55A0 /* Beautiful+Extension.swift in Sources */,
 				16ACDF2E2057D69D00CA6D05 /* VideoOperation.swift in Sources */,
 				16ACDF302057E15100CA6D05 /* AlertControllerHelper.swift in Sources */,
 				167C07B92135516600A5EE0F /* UIScrollView+Helper.swift in Sources */,

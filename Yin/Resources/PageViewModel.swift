@@ -28,6 +28,13 @@ class PageViewModel: NSObject, PageViewDataSourceDelegate {
         self.dataSource.loadModel()
     }
 
+    func updatePage(from previous: Int, to current: Int) {
+        if let currentView = videoViews[safe: current], let previousView = videoViews[safe: previous] {
+            previousView.stopPlay()
+            currentView.startPlay()
+        }
+    }
+
     //Mark:PageViewDataSourceDelegate
 
     func dataSource(_ dataSource: PageViewDataSource, didDownloadVideoURIs uris: [URL]?) {

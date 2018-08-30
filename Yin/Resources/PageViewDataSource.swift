@@ -25,6 +25,8 @@ class PageViewDataSource: NSObject {
     }
 
 
+
+
     func initialDownload() {
         videoURIs = names.compactMap({ (name) -> URL? in
             if let path = Bundle.main.path(forResource: name, ofType:"MOV") {

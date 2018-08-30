@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Yin/Resources/UploadViewController.swift"
-            timestampString = "557172623.494354"
+            timestampString = "557316143.408178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "viewModel(_:didUploadVideoWithFailure:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "viewModel(_:didUploadVideoWithSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -157,13 +157,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Yin/Resources/VideoView.swift"
-            timestampString = "557228504.206129"
+            filePath = "Yin/Resources/PageViewModel.swift"
+            timestampString = "557316143.408362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "createPlayer(videoURI:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "updatePage(from:to:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -173,14 +173,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Yin/Resources/StackedScrollView.swift"
-            timestampString = "557228504.206196"
+            filePath = "Yin/Resources/ScrollPageViewController.swift"
+            timestampString = "557316143.40842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "playVideo(at:)"
-            landmarkType = "7">
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "currentPage"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

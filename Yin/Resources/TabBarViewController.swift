@@ -20,9 +20,9 @@ class TabBarViewController: UITabBarController, UploadViewControllerDelegate {
 
     func viewCnotroller(_:UploadViewController, didFinishUpLoadingWithSuccess success:Bool) {
         //navigate to home
-        self.selectedIndex = 0
+       // self.selectedIndex = 0
         if (success) {
-            //homeViewController.refresh()
+            homeViewController.refresh()
         }
     }
 

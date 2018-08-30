@@ -54,7 +54,7 @@ import AVFoundation
     }
 
 
-    func playVideo() {
+    func startPlay() {
         self.player?.currentTime()
         self.player?.play()
     }

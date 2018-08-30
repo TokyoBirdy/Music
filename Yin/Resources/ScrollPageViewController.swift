@@ -5,6 +5,12 @@ class ScrollPageViewController: UIViewController {
    // var scrollPageViewBinder = ScrollpageViewBinder()
     let pageViewModel = PageViewModel()
 
+    var currentPage: Int = 0 {
+        didSet {
+            pageViewModel.updatePage(from: oldValue, to: currentPage)
+        }
+    }
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
@@ -40,6 +46,9 @@ class ScrollPageViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
 
+    func refresh() {
+        self.pageViewModel.reload()
+    }
 }
 
 extension ScrollPageViewController: PageViewModelDelegate {
@@ -50,7 +59,7 @@ extension ScrollPageViewController: PageViewModelDelegate {
             scrollpageView.createSubViews(with: uris)
         }
 
-       // scrollpageView.updateContentView()
+
     }
 
     func viewModel(viewModel:PageViewModel, didUpdateWithError error:Error?) {
@@ -63,11 +72,11 @@ extension ScrollPageViewController: PageViewModelDelegate {
 extension ScrollPageViewController: UIScrollViewDelegate {
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = Int(scrollView.contentOffset.y / scrollView.frame.height)
-        print("page number", pageNumber)
+        currentPage = Int(scrollView.contentOffset.y / scrollView.frame.height)
+        print("page number", currentPage)
         //TODO: how to do it gracefully
         if scrollView == scrollpageView {
-            scrollpageView.playVideo(at: pageNumber)
+            scrollpageView.playVideo(at: currentPage)
         }
 
     }

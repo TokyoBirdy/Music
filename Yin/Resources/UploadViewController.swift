@@ -14,7 +14,10 @@ class UploadViewController: UIViewController, UploadViewModelDelegate {
     let uploadViewModel = UploadViewModel()
     weak var delegate : UploadViewControllerDelegate?
 
+    var uploadButton: UIButton!
+
     init() {
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -23,24 +26,35 @@ class UploadViewController: UIViewController, UploadViewModelDelegate {
     }
 
     override func viewDidLoad() {
+        uploadButton = UIButton(type: .custom)
         super.viewDidLoad()
+        uploadButton.setTitle("upload", for: .normal)
+        uploadButton.backgroundColor = UIColor.random()
+        
+        uploadButton.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
+        uploadButton.translatesAutoresizingMaskIntoConstraints = false
         uploadViewModel.delegate = self
+        view.addSubview(uploadButton)
+
+        setupConstraints()
+        view.backgroundColor = UIColor.random()
 
 
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-         openCamera()
+    func setupConstraints() {
+        let constraints = [
+            uploadButton.widthAnchor.constraint(equalToConstant: 100),
+            uploadButton.heightAnchor.constraint(equalToConstant: 44),
+            uploadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            uploadButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func openCamera() {
+     @objc private func openCamera() {
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.delegate = uploadViewModel as (UIImagePickerControllerDelegate & UINavigationControllerDelegate)
         imagePickerController.mediaTypes = [(kUTTypeMovie as String)]
@@ -66,5 +80,6 @@ class UploadViewController: UIViewController, UploadViewModelDelegate {
         imagePickerController.dismiss(animated: true, completion: nil)
         self.delegate?.viewCnotroller(self, didFinishUpLoadingWithSuccess: false)
     }
+
 
 }
